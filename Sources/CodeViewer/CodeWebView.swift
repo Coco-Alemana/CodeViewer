@@ -273,7 +273,7 @@ public class CodeWebView: CustomView {
         return webView
     }()
     
-    var textDidChanged: ((String) -> Void)?
+    public var textDidChanged: ((String) -> Void)?
     
     private var currentContent: String = ""
     private var pageLoaded = false
