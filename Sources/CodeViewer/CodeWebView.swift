@@ -337,7 +337,7 @@ public class CodeWebView: CustomView {
         callJavascript(javascriptString: script)
     }
     
-    public func getAnnotation(callback: @escaping JavascriptCallback) {
+    func getAnnotation(callback: @escaping JavascriptCallback) {
         let script = "editor.getSession().getAnnotations();"
         callJavascript(javascriptString: script) { result in
            callback(result)
