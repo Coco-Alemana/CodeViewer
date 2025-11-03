@@ -289,7 +289,7 @@ public class CodeWebView: CustomView {
         initWebView()
     }
     
-    func setContent(_ value: String) {
+    public func setContent(_ value: String) {
         
         guard currentContent != value else {
             return
@@ -315,29 +315,29 @@ public class CodeWebView: CustomView {
         
     }
     
-    func setTheme(_ theme: Theme) {
+    public func setTheme(_ theme: Theme) {
         callJavascript(javascriptString: "editor.setTheme('ace/theme/\(theme.rawValue)');")
     }
     
-    func setMode(_ mode: Mode) {
+    public func setMode(_ mode: Mode) {
         callJavascript(javascriptString: "editor.session.setMode('ace/mode/\(mode.rawValue)');")
     }
     
-    func setReadOnly(_ isReadOnly: Bool) {
+    public func setReadOnly(_ isReadOnly: Bool) {
         callJavascript(javascriptString: "editor.setReadOnly(\(isReadOnly));")
     }
     
-    func setFontSize(_ fontSize: Int) {
+    public func setFontSize(_ fontSize: Int) {
         let script = "document.getElementById('editor').style.fontSize='\(fontSize)px';"
         callJavascript(javascriptString: script)
     }
     
-    func clearSelection() {
+    public func clearSelection() {
         let script = "editor.clearSelection();"
         callJavascript(javascriptString: script)
     }
     
-    func getAnnotation(callback: @escaping JavascriptCallback) {
+    public func getAnnotation(callback: @escaping JavascriptCallback) {
         let script = "editor.getSession().getAnnotations();"
         callJavascript(javascriptString: script) { result in
            callback(result)
